@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多页面文档示例</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 默认加载第一章
+            loadContent('web/demo.html');
+            
+            // 为所有目录链接添加点击事件
+            const links = document.querySelectorAll('.sidebar a');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const url = this.getAttribute('data-url');
+                    loadContent(url);
+                    
+                    // 更新活跃状态
+                    links.forEach(l => l.classList.remove('bg-blue-600', 'text-white'));
+                    this.classList.add('bg-blue-600', 'text-white');
+                });
+            });
+        });
+        
+        // 加载内容页面到主页面
+        function loadContent(url) {
+            const contentContainer = document.getElementById('content-container');
+            
+            // 显示加载状态
+            contentContainer.innerHTML = '<div class="flex items-center justify-center h-full"><i class="fa fa-spinner fa-spin text-3xl text-blue-500"></i></div>';
+            
+            // 使用Fetch API加载内容
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络响应不正常');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentContainer.innerHTML = html;
+                    // 更新页面标题
+                    const title = contentContainer.querySelector('h2')?.textContent || '文档内容';
+                    document.title = title + ' - 多页面文档示例';
+                })
+                .catch(error => {
+                    contentContainer.innerHTML = `
+                        <div class="p-6 bg-red-50 border border-red-200 rounded-lg">
+                            <h3 class="text-red-600 font-bold mb-2">加载失败</h3>
+                            <p>无法加载内容: ${error.message}</p>
+                        </div>
+                    `;
+                });
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="flex h-screen overflow-hidden">
+        <!-- 左侧目录 -->
+        <div class="sidebar w-64 bg-gray-800 text-white flex-shrink-0 overflow-y-auto">
+            <div class="p-4 border-b border-gray-700">
+                <h1 class="text-xl font-bold flex items-center">
+                    <i class="fa fa-book mr-2"></i>文档中心
+                </h1>
+            </div>
+            <nav class="p-4">
+                <ul class="space-y-1">
+                    <li>
+                        <a href="#" data-url="web/demo.html" class="block px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200">
+                            <i class="fa fa-file-text-o mr-2"></i>章节一：基本介绍
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- 右侧内容区域 -->
+        <div class="flex-1 overflow-y-auto bg-white p-8" id="content-container">
+            <!-- 内容将通过JavaScript动态加载 -->
+        </div>
+    </div>
+</body>
+</html>
