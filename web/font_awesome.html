@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Awesome 学习指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .code { @apply bg-gray-800 text-green-400 p-2 rounded font-mono text-sm; }
+        .card:hover { transform: translateY(-2px); transition: all 0.2s ease; }
+        .icon-example { font-size: 2rem; margin: 0.5rem; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-purple-800 to-pink-900 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <i class="fa-brands fa-font-awesome text-5xl mb-4 text-yellow-300"></i>
+            <h1 class="text-4xl font-bold mb-2">Font Awesome 学习指南</h1>
+            <p class="text-gray-300">掌握现代网页图标库的使用方法</p>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-6 py-8 max-w-6xl">
+        <!-- Basic Usage -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fa-solid fa-code text-purple-500 mr-3"></i>基本使用
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card bg-white p-6 rounded-lg shadow border">
+                    <h3 class="font-semibold text-lg mb-4 text-purple-700">引入方法</h3>
+                    <div class="code mb-4">
+                        <!-- CDN引入 -->
+                        &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;
+                    </div>
+                    <p class="text-gray-600">推荐使用CDN方式引入，简单快捷无需本地安装</p>
+                </div>
+
+                <div class="card bg-white p-6 rounded-lg shadow border">
+                    <h3 class="font-semibold text-lg mb-4 text-purple-700">基本语法</h3>
+                    <div class="code mb-4">
+                        &lt;i class="fa-solid fa-home"&gt;&lt;/i&gt;
+                    </div>
+                    <p class="text-gray-600">所有图标都使用&lt;i&gt;标签，包含两个必要类：<br>
+                    <span class="font-medium">fa-solid</span>（样式家族）和<span class="font-medium">fa-home</span>（具体图标）</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Icon Styles -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fa-solid fa-paint-brush text-pink-500 mr-3"></i>图标样式
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="card bg-white p-5 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-3 flex items-center">
+                        <i class="fa-solid fa-fill text-gray-700 mr-2"></i>实心样式
+                    </h3>
+                    <div class="code mb-3">
+                        &lt;i class="fa-solid fa-star"&gt;&lt;/i&gt;
+                    </div>
+                    <div class="text-3xl text-purple-600">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-3">使用 <span class="font-medium">fa-solid</span> 类</p>
+                </div>
+
+                <div class="card bg-white p-5 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-3 flex items-center">
+                        <i class="fa-regular fa-star text-gray-700 mr-2"></i>常规样式
+                    </h3>
+                    <div class="code mb-3">
+                        &lt;i class="fa-regular fa-star"&gt;&lt;/i&gt;
+                    </div>
+                    <div class="text-3xl text-purple-600">
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-3">使用 <span class="font-medium">fa-regular</span> 类</p>
+                </div>
+
+                <div class="card bg-white p-5 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-3 flex items-center">
+                        <i class="fa-brands fa-github text-gray-700 mr-2"></i>品牌图标
+                    </h3>
+                    <div class="code mb-3">
+                        &lt;i class="fa-brands fa-github"&gt;&lt;/i&gt;
+                    </div>
+                    <div class="text-3xl text-purple-600">
+                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-3">使用 <span class="font-medium">fa-brands</span> 类</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Icon Modifications -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fa-solid fa-sliders text-indigo-500 mr-3"></i>图标修饰
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-3">尺寸调整</h3>
+                    <div class="code mb-2">
+                        &lt;i class="fa-solid fa-check fa-xs"&gt;&lt;/i&gt;<br>
+                        &lt;i class="fa-solid fa-check fa-lg"&gt;&lt;/i&gt;<br>
+                        &lt;i class="fa-solid fa-check fa-2x"&gt;&lt;/i&gt;
+                    </div>
+                    <div class="flex items-center gap-3 text-purple-600">
+                        <i class="fa-solid fa-check fa-xs"></i>
+                        <i class="fa-solid fa-check fa-sm"></i>
+                        <i class="fa-solid fa-check fa-lg"></i>
+                        <i class="fa-solid fa-check fa-xl"></i>
+                        <i class="fa-solid fa-check fa-2x"></i>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-3">颜色修改</h3>
+                    <div class="code mb-2">
+                        &lt;i class="fa-solid fa-heart text-red-500"&gt;&lt;/i&gt;<br>
+                        &lt;i class="fa-solid fa-info-circle text-blue-500"&gt;&lt;/i&gt;
+                    </div>
+                    <div class="flex gap-4 text-xl">
+                        <i class="fa-solid fa-heart text-red-500"></i>
+                        <i class="fa-solid fa-info-circle text-blue-500"></i>
+                        <i class="fa-solid fa-warning text-yellow-500"></i>
+                        <i class="fa-solid fa-check text-green-500"></i>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-3">动画效果</h3>
+                    <div class="code mb-2">
+                        &lt;i class="fa-solid fa-spinner fa-spin"&gt;&lt;/i&gt;<br>
+                        &lt;i class="fa-solid fa-circle-notch fa-pulse"&gt;&lt;/i&gt;
+                    </div>
+                    <div class="flex gap-4 text-xl text-purple-600">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        <i class="fa-solid fa-circle-notch fa-pulse"></i>
+                        <i class="fa-solid fa-sync fa-spin"></i>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-3">旋转与翻转</h3>
+                    <div class="code mb-2">
+                        &lt;i class="fa-solid fa-redo fa-rotate-90"&gt;&lt;/i&gt;<br>
+                        &lt;i class="fa-solid fa-comment fa-flip-horizontal"&gt;&lt;/i&gt;
+                    </div>
+                    <div class="flex gap-4 text-xl text-purple-600">
+                        <i class="fa-solid fa-redo"></i>
+                        <i class="fa-solid fa-redo fa-rotate-90"></i>
+                        <i class="fa-solid fa-comment fa-flip-horizontal"></i>
+                        <i class="fa-solid fa-comment fa-flip-vertical"></i>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-3">边框与圆形</h3>
+                    <div class="code mb-2">
+                        &lt;i class="fa-solid fa-user fa-border"&gt;&lt;/i&gt;<br>
+                        &lt;i class="fa-solid fa-user fa-circle"&gt;&lt;/i&gt;
+                    </div>
+                    <div class="flex gap-4 text-xl text-purple-600">
+                        <i class="fa-solid fa-user fa-border p-1"></i>
+                        <i class="fa-solid fa-user fa-circle"></i>
+                        <i class="fa-solid fa-envelope fa-border rounded-full p-1"></i>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-3">叠加图标</h3>
+                    <div class="code mb-2">
+                        &lt;span class="fa-stack"&gt;<br>
+                        &nbsp;&nbsp;&lt;i class="fa-solid fa-circle fa-stack-2x"&gt;&lt;/i&gt;<br>
+                        &nbsp;&nbsp;&lt;i class="fa-solid fa-check fa-stack-1x text-white"&gt;&lt;/i&gt;<br>
+                        &lt;/span&gt;
+                    </div>
+                    <div class="flex gap-4 text-2xl">
+                        <span class="fa-stack">
+                            <i class="fa-solid fa-circle fa-stack-2x text-purple-200"></i>
+                            <i class="fa-solid fa-check fa-stack-1x text-purple-600"></i>
+                        </span>
+                        <span class="fa-stack">
+                            <i class="fa-solid fa-square fa-stack-2x text-purple-200"></i>
+                            <i class="fa-solid fa-twitter fa-stack-1x text-purple-600"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Icon Categories -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fa-solid fa-th text-purple-500 mr-3"></i>常用图标分类
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card bg-white p-5 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-4 text-purple-700">界面元素</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="text-center">
+                            <i class="fa-solid fa-search icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-search</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-bars icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-bars</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-times icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-times</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-chevron-down icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-chevron-down</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-cog icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-cog</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-bell icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-bell</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-5 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-4 text-purple-700">社交媒体</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="text-center">
+                            <i class="fa-brands fa-facebook-f icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-facebook-f</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-brands fa-twitter icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-twitter</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-brands fa-instagram icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-instagram</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-brands fa-linkedin-in icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-linkedin-in</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-brands fa-github icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-github</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-brands fa-youtube icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-youtube</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-5 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-4 text-purple-700">状态与反馈</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="text-center">
+                            <i class="fa-solid fa-check-circle icon-example text-green-500"></i>
+                            <p class="text-xs mt-1">fa-check-circle</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-exclamation-triangle icon-example text-yellow-500"></i>
+                            <p class="text-xs mt-1">fa-exclamation-triangle</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-times-circle icon-example text-red-500"></i>
+                            <p class="text-xs mt-1">fa-times-circle</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-info-circle icon-example text-blue-500"></i>
+                            <p class="text-xs mt-1">fa-info-circle</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-question-circle icon-example text-purple-500"></i>
+                            <p class="text-xs mt-1">fa-question-circle</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-spinner fa-spin icon-example text-gray-500"></i>
+                            <p class="text-xs mt-1">fa-spinner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-5 rounded-lg shadow border">
+                    <h3 class="font-semibold mb-4 text-purple-700">文件与文档</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="text-center">
+                            <i class="fa-solid fa-file icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-file</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-file-pdf icon-example text-red-500"></i>
+                            <p class="text-xs mt-1">fa-file-pdf</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-file-image icon-example text-green-500"></i>
+                            <p class="text-xs mt-1">fa-file-image</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-file-word icon-example text-blue-500"></i>
+                            <p class="text-xs mt-1">fa-file-word</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-folder icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-folder</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-download icon-example text-purple-600"></i>
+                            <p class="text-xs mt-1">fa-download</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Tips -->
+        <section class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl mb-12">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fa-solid fa-lightbulb text-yellow-500 mr-3"></i>使用技巧
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6 text-sm">
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">图标搜索</h3>
+                    <p class="mb-2">访问官方网站快速查找所需图标：</p>
+                    <div class="code mb-3">
+                        https://fontawesome.com/search
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">响应式图标</h3>
+                    <p class="mb-2">结合Tailwind实现响应式图标大小：</p>
+                    <div class="code mb-3">
+                        &lt;i class="fa-solid fa-home sm:text-lg md:text-xl lg:text-2xl"&gt;&lt;/i&gt;
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">图标作为链接</h3>
+                    <div class="code mb-3">
+                        &lt;a href="#" class="text-blue-500 hover:text-blue-700"&gt;<br>
+                        &nbsp;&nbsp;&lt;i class="fa-solid fa-arrow-up-right-from-square"&gt;&lt;/i&gt;<br>
+                        &lt;/a&gt;
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">自定义CSS</h3>
+                    <div class="code mb-3">
+                        .custom-icon {<br>
+                        &nbsp;&nbsp;color: #8B5CF6;<br>
+                        &nbsp;&nbsp;font-size: 2rem;<br>
+                        &nbsp;&nbsp;transition: transform 0.3s;<br>
+                        }<br>
+                        .custom-icon:hover { transform: scale(1.1); }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-300">
+                <i class="fa-brands fa-font-awesome text-yellow-300 mr-2"></i>
+                Font Awesome 是一个强大的图标库，能极大丰富你的网页设计
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Add copy functionality to code blocks
+        document.querySelectorAll('.code').forEach(block => {
+            block.addEventListener('click', function() {
+                // 复制代码时保留换行符
+                const text = this.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalBg = this.style.backgroundColor;
+                    const originalColor = this.style.color;
+                    this.style.backgroundColor = '#10b981';
+                    this.style.color = 'white';
+                    setTimeout(() => {
+                        this.style.backgroundColor = originalBg;
+                        this.style.color = originalColor;
+                    }, 500);
+                });
+            });
+            block.style.cursor = 'pointer';
+            block.title = '点击复制代码';
+        });
+    </script>
+</body>
+</html>

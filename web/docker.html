@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker命令使用指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .code { @apply bg-gray-800 text-green-400 p-2 rounded font-mono text-sm; }
+        .card:hover { transform: translateY(-2px); transition: all 0.2s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-800 to-indigo-900 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <i class="fab fa-docker text-5xl mb-4 text-blue-400"></i>
+            <h1 class="text-4xl font-bold mb-2">Docker 命令指南</h1>
+            <p class="text-gray-300">快速掌握容器化核心命令</p>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-6 py-8 max-w-6xl">
+        <!-- Basic Commands -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-play-circle text-blue-500 mr-3"></i>基础命令
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-info-circle text-blue-500 mr-2"></i>
+                        <h3 class="font-semibold">版本信息</h3>
+                    </div>
+                    <div class="code mb-2">docker --version</div>
+                    <p class="text-sm text-gray-600">查看Docker版本</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-cog text-gray-500 mr-2"></i>
+                        <h3 class="font-semibold">运行状态</h3>
+                    </div>
+                    <div class="code mb-2">docker info</div>
+                    <p class="text-sm text-gray-600">查看Docker系统信息</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-question-circle text-purple-500 mr-2"></i>
+                        <h3 class="font-semibold">帮助命令</h3>
+                    </div>
+                    <div class="code mb-2">docker --help<br>docker [command] --help</div>
+                    <p class="text-sm text-gray-600">查看命令帮助信息</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Commands -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-image text-purple-500 mr-3"></i>镜像管理
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-search text-blue-500 mr-2"></i>
+                        <h3 class="font-semibold">搜索镜像</h3>
+                    </div>
+                    <div class="code mb-2">docker search &lt;image&gt;</div>
+                    <p class="text-sm text-gray-600">从仓库搜索镜像</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-download text-green-500 mr-2"></i>
+                        <h3 class="font-semibold">拉取镜像</h3>
+                    </div>
+                    <div class="code mb-2">docker pull &lt;image&gt;:&lt;tag&gt;</div>
+                    <p class="text-sm text-gray-600">下载镜像到本地</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-list text-gray-500 mr-2"></i>
+                        <h3 class="font-semibold">本地镜像</h3>
+                    </div>
+                    <div class="code mb-2">docker images<br>docker image ls</div>
+                    <p class="text-sm text-gray-600">列出本地所有镜像</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-trash text-red-500 mr-2"></i>
+                        <h3 class="font-semibold">删除镜像</h3>
+                    </div>
+                    <div class="code mb-2">docker rmi &lt;image&gt;<br>docker image rm &lt;image&gt;</div>
+                    <p class="text-sm text-gray-600">删除本地镜像</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-share-alt text-orange-500 mr-2"></i>
+                        <h3 class="font-semibold">推送镜像</h3>
+                    </div>
+                    <div class="code mb-2">docker push &lt;image&gt;:&lt;tag&gt;</div>
+                    <p class="text-sm text-gray-600">推送镜像到仓库</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-sync text-indigo-500 mr-2"></i>
+                        <h3 class="font-semibold">构建镜像</h3>
+                    </div>
+                    <div class="code mb-2">docker build -t &lt;name&gt; .</div>
+                    <p class="text-sm text-gray-600">根据Dockerfile构建镜像</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Container Commands -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-cubes text-blue-500 mr-3"></i>容器管理
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-play text-green-500 mr-2"></i>
+                        <h3 class="font-semibold">启动容器</h3>
+                    </div>
+                    <div class="code mb-2">docker run [options] &lt;image&gt;</div>
+                    <p class="text-sm text-gray-600">基于镜像启动新容器</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-list text-gray-500 mr-2"></i>
+                        <h3 class="font-semibold">查看容器</h3>
+                    </div>
+                    <div class="code mb-2">docker ps<br>docker ps -a</div>
+                    <p class="text-sm text-gray-600">列出运行中/所有容器</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-stop text-red-500 mr-2"></i>
+                        <h3 class="font-semibold">停止容器</h3>
+                    </div>
+                    <div class="code mb-2">docker stop &lt;container&gt;</div>
+                    <p class="text-sm text-gray-600">停止运行中的容器</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-power-off text-orange-500 mr-2"></i>
+                        <h3 class="font-semibold">重启容器</h3>
+                    </div>
+                    <div class="code mb-2">docker restart &lt;container&gt;</div>
+                    <p class="text-sm text-gray-600">重启容器</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-trash text-red-500 mr-2"></i>
+                        <h3 class="font-semibold">删除容器</h3>
+                    </div>
+                    <div class="code mb-2">docker rm &lt;container&gt;<br>docker rm -f &lt;container&gt;</div>
+                    <p class="text-sm text-gray-600">删除容器，-f强制删除运行中容器</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-terminal text-purple-500 mr-2"></i>
+                        <h3 class="font-semibold">进入容器</h3>
+                    </div>
+                    <div class="code mb-2">docker exec -it &lt;container&gt; bash</div>
+                    <p class="text-sm text-gray-600">进入运行中的容器终端</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Commands -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-cog text-indigo-500 mr-3"></i>高级操作
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-file text-blue-500 mr-2"></i>
+                        <h3 class="font-semibold">容器日志</h3>
+                    </div>
+                    <div class="code mb-2">docker logs &lt;container&gt;<br>docker logs -f &lt;container&gt;</div>
+                    <p class="text-sm text-gray-600">查看容器日志，-f实时跟踪</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-info-circle text-green-500 mr-2"></i>
+                        <h3 class="font-semibold">容器详情</h3>
+                    </div>
+                    <div class="code mb-2">docker inspect &lt;container&gt;</div>
+                    <p class="text-sm text-gray-600">查看容器详细信息</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-file-export text-orange-500 mr-2"></i>
+                        <h3 class="font-semibold">复制文件</h3>
+                    </div>
+                    <div class="code mb-2">docker cp &lt;container&gt;:&lt;path&gt; &lt;host-path&gt;</div>
+                    <p class="text-sm text-gray-600">从容器复制文件到主机</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-server text-purple-500 mr-2"></i>
+                        <h3 class="font-semibold">端口映射</h3>
+                    </div>
+                    <div class="code mb-2">docker run -p &lt;host-port&gt;:&lt;container-port&gt;</div>
+                    <p class="text-sm text-gray-600">映射容器端口到主机</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-folder-open text-gray-500 mr-2"></i>
+                        <h3 class="font-semibold">数据卷</h3>
+                    </div>
+                    <div class="code mb-2">docker run -v &lt;host-dir&gt;:&lt;container-dir&gt;</div>
+                    <p class="text-sm text-gray-600">挂载主机目录到容器</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-sync-alt text-indigo-500 mr-2"></i>
+                        <h3 class="font-semibold">清理资源</h3>
+                    </div>
+                    <div class="code mb-2">docker system prune<br>docker system prune -a</div>
+                    <p class="text-sm text-gray-600">清理未使用的资源</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Docker Compose -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-code-branch text-green-500 mr-3"></i>Docker Compose
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-play text-green-500 mr-2"></i>
+                        <h3 class="font-semibold">启动服务</h3>
+                    </div>
+                    <div class="code mb-2">docker-compose up<br>docker-compose up -d</div>
+                    <p class="text-sm text-gray-600">启动所有服务，-d后台运行</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-stop text-red-500 mr-2"></i>
+                        <h3 class="font-semibold">停止服务</h3>
+                    </div>
+                    <div class="code mb-2">docker-compose down</div>
+                    <p class="text-sm text-gray-600">停止并移除容器</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-refresh text-blue-500 mr-2"></i>
+                        <h3 class="font-semibold">重建服务</h3>
+                    </div>
+                    <div class="code mb-2">docker-compose up --build</div>
+                    <p class="text-sm text-gray-600">重建并启动服务</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-list text-gray-500 mr-2"></i>
+                        <h3 class="font-semibold">查看状态</h3>
+                    </div>
+                    <div class="code mb-2">docker-compose ps</div>
+                    <p class="text-sm text-gray-600">查看Compose管理的容器</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Tips -->
+        <section class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-lightbulb text-yellow-500 mr-3"></i>常用技巧
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6 text-sm">
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">常用run参数</h3>
+                    <div class="code mb-3">
+                        docker run -d --name &lt;name&gt; -p 80:80 -v /data:/app &lt;image&gt;
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">批量操作</h3>
+                    <div class="code mb-3">
+                        docker stop $(docker ps -aq)<br>
+                        docker rm $(docker ps -aq)
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">镜像导出导入</h3>
+                    <div class="code mb-3">
+                        docker save -o &lt;file.tar&gt; &lt;image&gt;<br>
+                        docker load -i &lt;file.tar&gt;
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">设置镜像源</h3>
+                    <div class="code mb-3">
+                        # 编辑 /etc/docker/daemon.json<br>
+                        {"registry-mirrors":["https://mirror.example.com"]}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-300">
+                <i class="fab fa-docker text-blue-400 mr-2"></i>
+                掌握这些Docker命令，轻松进行容器化部署
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Add copy functionality to code blocks
+        document.querySelectorAll('.code').forEach(block => {
+            block.addEventListener('click', function() {
+                const text = this.textContent.replace(/\n/g, ' && ');
+                navigator.clipboard.writeText(text).then(() => {
+                    const original = this.style.backgroundColor;
+                    this.style.backgroundColor = '#10b981';
+                    this.style.color = 'white';
+                    setTimeout(() => {
+                        this.style.backgroundColor = '';
+                        this.style.color = '';
+                    }, 500);
+                });
+            });
+            block.style.cursor = 'pointer';
+            block.title = '点击复制命令';
+        });
+    </script>
+</body>
+</html>
