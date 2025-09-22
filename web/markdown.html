@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown语法学习指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .code { @apply bg-gray-800 text-green-400 p-2 rounded font-mono text-sm; }
+        .preview { @apply bg-gray-50 p-3 rounded border border-gray-200 my-2; }
+        .card:hover { transform: translateY(-2px); transition: all 0.2s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <i class="fas fa-markdown text-5xl mb-4 text-yellow-400"></i>
+            <h1 class="text-4xl font-bold mb-2">Markdown 语法指南</h1>
+            <p class="text-gray-200">轻量级标记语言的核心语法详解</p>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-6 py-8 max-w-6xl">
+        <!-- Basic Syntax -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-paragraph text-gray-700 mr-3"></i>基本语法
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-heading text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">标题</h3>
+                    </div>
+                    <div class="code mb-2"># 一级标题<br>## 二级标题<br>### 三级标题</div>
+                    <div class="preview">
+                        <h4 class="font-bold text-lg">一级标题</h4>
+                        <h5 class="font-bold">二级标题</h5>
+                        <h6 class="font-bold text-sm">三级标题</h6>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-align-left text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">段落</h3>
+                    </div>
+                    <div class="code mb-2">这是一个段落。<br><br>这是另一个段落。</div>
+                    <div class="preview">
+                        <p>这是一个段落。</p>
+                        <p>这是另一个段落。</p>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-bold text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">强调</h3>
+                    </div>
+                    <div class="code mb-2">**粗体文本**<br>*斜体文本*<br>***粗斜体文本***</div>
+                    <div class="preview">
+                        <p><strong>粗体文本</strong></p>
+                        <p><em>斜体文本</em></p>
+                        <p><strong><em>粗斜体文本</em></strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lists -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-list text-gray-700 mr-3"></i>列表
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-list-ol text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">有序列表</h3>
+                    </div>
+                    <div class="code mb-2">1. 第一项<br>2. 第二项<br>3. 第三项</div>
+                    <div class="preview">
+                        <ol class="list-decimal pl-5">
+                            <li>第一项</li>
+                            <li>第二项</li>
+                            <li>第三项</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-list-ul text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">无序列表</h3>
+                    </div>
+                    <div class="code mb-2">- 项目一<br>- 项目二<br>- 项目三</div>
+                    <div class="preview">
+                        <ul class="list-disc pl-5">
+                            <li>项目一</li>
+                            <li>项目二</li>
+                            <li>项目三</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-indent text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">嵌套列表</h3>
+                    </div>
+                    <div class="code mb-2">- 主项目1<br>&nbsp;&nbsp;- 子项目1<br>&nbsp;&nbsp;- 子项目2<br>- 主项目2</div>
+                    <div class="preview">
+                        <ul class="list-disc pl-5">
+                            <li>主项目1
+                                <ul class="list-disc pl-5">
+                                    <li>子项目1</li>
+                                    <li>子项目2</li>
+                                </ul>
+                            </li>
+                            <li>主项目2</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Links and Images -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-link text-gray-700 mr-3"></i>链接与图片
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-external-link-alt text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">链接</h3>
+                    </div>
+                    <div class="code mb-2">[链接文本](https://example.com)</div>
+                    <div class="preview">
+                        <p><a href="https://example.com" class="text-blue-500 underline">链接文本</a></p>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-image text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">图片</h3>
+                    </div>
+                    <div class="code mb-2">![图片描述](https://picsum.photos/200/100)</div>
+                    <div class="preview">
+                        <img src="https://picsum.photos/200/100" alt="图片描述" class="rounded">
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-link text-blue-500 mr-2"></i>
+                        <h3 class="font-semibold">引用链接</h3>
+                    </div>
+                    <div class="code mb-2">[链接][1]<br><br>[1]: https://example.com</div>
+                    <div class="preview">
+                        <p><a href="https://example.com" class="text-blue-500 underline">链接</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blocks -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-blockquote-left text-gray-700 mr-3"></i>块元素
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-quote-right text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">引用</h3>
+                    </div>
+                    <div class="code mb-2">> 这是一段引用文本<br>> 可以有多行</div>
+                    <div class="preview">
+                        <blockquote class="border-l-4 border-gray-300 pl-4 italic">
+                            这是一段引用文本<br>可以有多行
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-code text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">代码块</h3>
+                    </div>
+                    <div class="code mb-2">```python<br>print("Hello World")<br>```</div>
+                    <div class="preview bg-gray-800 text-green-400 p-2 rounded font-mono text-sm">
+                        print("Hello World")
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-table text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">表格</h3>
+                    </div>
+                    <div class="code mb-2">| 表头1 | 表头2 |<br>| --- | --- |<br>| 单元格1 | 单元格2 |</div>
+                    <div class="preview">
+                        <table class="border-collapse border border-gray-300 w-full">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="border border-gray-300 p-2">表头1</th>
+                                    <th class="border border-gray-300 p-2">表头2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-300 p-2">单元格1</td>
+                                    <td class="border border-gray-300 p-2">单元格2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Syntax -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-magic text-gray-700 mr-3"></i>高级语法
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-check-square text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">任务列表</h3>
+                    </div>
+                    <div class="code mb-2">- [x] 已完成任务<br>- [ ] 未完成任务</div>
+                    <div class="preview">
+                        <ul class="list-none pl-0">
+                            <li class="flex items-center"><input type="checkbox" checked disabled class="mr-2">已完成任务</li>
+                            <li class="flex items-center"><input type="checkbox" disabled class="mr-2">未完成任务</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-horizontal-rule text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">分隔线</h3>
+                    </div>
+                    <div class="code mb-2">---<br>***<br>___</div>
+                    <div class="preview">
+                        <hr class="my-2 border-gray-300">
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-at text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">锚点与脚注</h3>
+                    </div>
+                    <div class="code mb-2">[跳转到标题](#标题)<br><br>文本[^1]<br><br>[^1]: 脚注内容</div>
+                    <div class="preview">
+                        <p><a href="#标题" class="text-blue-500 underline">跳转到标题</a></p>
+                        <p>文本<sup>1</sup></p>
+                        <p class="text-sm text-gray-500"><sup>1</sup> 脚注内容</p>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-hashtag text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">代码高亮</h3>
+                    </div>
+                    <div class="code mb-2">```javascript<br>function hello() {<br>&nbsp;&nbsp;return "world";<br>}<br>```</div>
+                    <div class="preview bg-gray-800 text-green-400 p-2 rounded font-mono text-sm">
+                        function hello() {<br>
+                        &nbsp;&nbsp;return "world";<br>
+                        }
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-strikethrough text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">删除线</h3>
+                    </div>
+                    <div class="code mb-2">~~删除的文本~~</div>
+                    <div class="preview">
+                        <p><s>删除的文本</s></p>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-subscript text-gray-700 mr-2"></i>
+                        <h3 class="font-semibold">上下标</h3>
+                    </div>
+                    <div class="code mb-2">X~2~<br>E=mc^2^</div>
+                    <div class="preview">
+                        <p>X<sub>2</sub></p>
+                        <p>E=mc<sup>2</sup></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Tips -->
+        <section class="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-xl">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-lightbulb text-yellow-500 mr-3"></i>使用技巧
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6 text-sm">
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">编辑器推荐</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>VS Code + Markdown All in One 插件</li>
+                        <li>Typora - 所见即所得的Markdown编辑器</li>
+                        <li>Notion - 支持Markdown的多功能笔记工具</li>
+                        <li>Obsidian - 双链笔记与Markdown完美结合</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">实用技巧</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>使用空行分隔不同的块级元素</li>
+                        <li>在特殊字符前加反斜杠\进行转义</li>
+                        <li>利用HTML标签扩展Markdown功能</li>
+                        <li>结合图表工具(mermaid)绘制流程图</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">常见扩展语法</h3>
+                    <div class="code mb-3">
+                        <!-- 折叠内容 -->
+                        <details>
+                          <summary>点击展开</summary>
+                          这是折叠的内容
+                        </details>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">在线工具</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Dillinger - 在线Markdown编辑器</li>
+                        <li>Markdown to HTML - 格式转换工具</li>
+                        <li>StackEdit - 云端Markdown编辑平台</li>
+                        <li>GitHub Gist - 分享Markdown文档</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-300">
+                <i class="fas fa-markdown text-yellow-400 mr-2"></i>
+                掌握这些Markdown语法，轻松编写格式化文档
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Add copy functionality to code blocks
+        document.querySelectorAll('.code').forEach(block => {
+            block.addEventListener('click', function() {
+                const text = this.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    const original = this.style.backgroundColor;
+                    this.style.backgroundColor = '#10b981';
+                    this.style.color = 'white';
+                    setTimeout(() => {
+                        this.style.backgroundColor = '';
+                        this.style.color = '';
+                    }, 500);
+                });
+            });
+            block.style.cursor = 'pointer';
+            block.title = '点击复制语法';
+        });
+    </script>
+</body>
+</html>

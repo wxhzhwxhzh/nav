@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python pip命令使用指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .code { @apply bg-gray-800 text-green-400 p-2 rounded font-mono text-sm; }
+        .card:hover { transform: translateY(-2px); transition: all 0.2s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <i class="fab fa-python text-5xl mb-4 text-yellow-400"></i>
+            <h1 class="text-4xl font-bold mb-2">pip 命令指南</h1>
+            <p class="text-blue-100">Python包管理工具的核心命令详解</p>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-6 py-8 max-w-6xl">
+        <!-- Basic Commands -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-play-circle text-blue-500 mr-3"></i>基础命令
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-info-circle text-blue-500 mr-2"></i>
+                        <h3 class="font-semibold">版本信息</h3>
+                    </div>
+                    <div class="code mb-2">pip --version</div>
+                    <p class="text-sm text-gray-600">查看pip版本信息</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-sync text-green-500 mr-2"></i>
+                        <h3 class="font-semibold">升级pip</h3>
+                    </div>
+                    <div class="code mb-2">pip install --upgrade pip</div>
+                    <p class="text-sm text-gray-600">升级pip到最新版本</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-list text-purple-500 mr-2"></i>
+                        <h3 class="font-semibold">帮助信息</h3>
+                    </div>
+                    <div class="code mb-2">pip help<br>pip &lt;command&gt; --help</div>
+                    <p class="text-sm text-gray-600">查看pip帮助信息</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Package Management -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-boxes text-green-500 mr-3"></i>包管理
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-download text-blue-500 mr-2"></i>
+                        <h3 class="font-semibold">安装包</h3>
+                    </div>
+                    <div class="code mb-2">pip install &lt;package&gt;<br>pip install &lt;package&gt;==x.y.z</div>
+                    <p class="text-sm text-gray-600">安装指定包或指定版本</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-sync-alt text-orange-500 mr-2"></i>
+                        <h3 class="font-semibold">升级包</h3>
+                    </div>
+                    <div class="code mb-2">pip install --upgrade &lt;package&gt;</div>
+                    <p class="text-sm text-gray-600">升级已安装的包</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-trash text-red-500 mr-2"></i>
+                        <h3 class="font-semibold">卸载包</h3>
+                    </div>
+                    <div class="code mb-2">pip uninstall &lt;package&gt;</div>
+                    <p class="text-sm text-gray-600">卸载指定的包</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-search text-purple-500 mr-2"></i>
+                        <h3 class="font-semibold">搜索包</h3>
+                    </div>
+                    <div class="code mb-2">pip search &lt;query&gt;</div>
+                    <p class="text-sm text-gray-600">从PyPI搜索包</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-info-circle text-indigo-500 mr-2"></i>
+                        <h3 class="font-semibold">包信息</h3>
+                    </div>
+                    <div class="code mb-2">pip show &lt;package&gt;</div>
+                    <p class="text-sm text-gray-600">显示包的详细信息</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-list-check text-green-500 mr-2"></i>
+                        <h3 class="font-semibold">列出包</h3>
+                    </div>
+                    <div class="code mb-2">pip list<br>pip freeze</div>
+                    <p class="text-sm text-gray-600">列出已安装的包</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Commands -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-cogs text-blue-500 mr-3"></i>高级操作
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-file-import text-orange-500 mr-2"></i>
+                        <h3 class="font-semibold">批量安装</h3>
+                    </div>
+                    <div class="code mb-2">pip install -r requirements.txt</div>
+                    <p class="text-sm text-gray-600">从文件安装多个包</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-file-export text-purple-500 mr-2"></i>
+                        <h3 class="font-semibold">导出列表</h3>
+                    </div>
+                    <div class="code mb-2">pip freeze > requirements.txt</div>
+                    <p class="text-sm text-gray-600">导出已安装包列表</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-server text-red-500 mr-2"></i>
+                        <h3 class="font-semibold">指定源安装</h3>
+                    </div>
+                    <div class="code mb-2">pip install -i &lt;url&gt; &lt;package&gt;</div>
+                    <p class="text-sm text-gray-600">从指定镜像源安装</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-code-branch text-green-500 mr-2"></i>
+                        <h3 class="font-semibold">安装源码包</h3>
+                    </div>
+                    <div class="code mb-2">pip install &lt;vcs+url&gt;<br>pip install .</div>
+                    <p class="text-sm text-gray-600">从版本控制系统或本地安装</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-clean text-indigo-500 mr-2"></i>
+                        <h3 class="font-semibold">清理缓存</h3>
+                    </div>
+                    <div class="code mb-2">pip cache purge<br>pip cache remove &lt;package&gt;</div>
+                    <p class="text-sm text-gray-600">清理pip缓存</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-ban text-red-500 mr-2"></i>
+                        <h3 class="font-semibold">检查冲突</h3>
+                    </div>
+                    <div class="code mb-2">pip check</div>
+                    <p class="text-sm text-gray-600">检查已安装包的依赖冲突</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Virtual Environment -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-project-diagram text-purple-500 mr-3"></i>虚拟环境
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-plus-circle text-green-500 mr-2"></i>
+                        <h3 class="font-semibold">创建环境</h3>
+                    </div>
+                    <div class="code mb-2">python -m venv myenv</div>
+                    <p class="text-sm text-gray-600">创建虚拟环境</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-power-off text-blue-500 mr-2"></i>
+                        <h3 class="font-semibold">激活环境</h3>
+                    </div>
+                    <div class="code mb-2">source myenv/bin/activate<br>myenv\Scripts\activate</div>
+                    <p class="text-sm text-gray-600">激活虚拟环境（Linux/macOS/Windows）</p>
+                </div>
+
+                <div class="card bg-white p-4 rounded-lg shadow border">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-power-off text-red-500 mr-2"></i>
+                        <h3 class="font-semibold">退出环境</h3>
+                    </div>
+                    <div class="code mb-2">deactivate</div>
+                    <p class="text-sm text-gray-600">退出虚拟环境</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Tips -->
+        <section class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-lightbulb text-yellow-500 mr-3"></i>常用技巧
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6 text-sm">
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">国内镜像源设置</h3>
+                    <div class="code mb-3">
+                        pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple<br>
+                        # 清华大学镜像源
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">升级所有包</h3>
+                    <div class="code mb-3">
+                        pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">安装开发版本</h3>
+                    <div class="code mb-3">
+                        pip install --pre &lt;package&gt;<br>
+                        # 安装预发布版本
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2 text-gray-700">查看可升级的包</h3>
+                    <div class="code mb-3">
+                        pip list --outdated<br>
+                        pip list -o
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-blue-100">
+                <i class="fab fa-python text-yellow-400 mr-2"></i>
+                掌握这些pip命令，轻松管理Python包依赖
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Add copy functionality to code blocks
+        document.querySelectorAll('.code').forEach(block => {
+            block.addEventListener('click', function() {
+                const text = this.textContent.replace(/\n/g, ' && ');
+                navigator.clipboard.writeText(text).then(() => {
+                    const original = this.style.backgroundColor;
+                    this.style.backgroundColor = '#10b981';
+                    this.style.color = 'white';
+                    setTimeout(() => {
+                        this.style.backgroundColor = '';
+                        this.style.color = '';
+                    }, 500);
+                });
+            });
+            block.style.cursor = 'pointer';
+            block.title = '点击复制命令';
+        });
+    </script>
+</body>
+</html>
